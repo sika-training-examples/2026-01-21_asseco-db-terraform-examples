@@ -25,7 +25,7 @@ resource "azurerm_mongo_cluster_firewall_rule" "mongo-allow-all" {
   end_ip_address   = "255.255.255.255"
 }
 
-output "mongo_connection_strings" {
-  value     = azurerm_mongo_cluster.mongo.connection_strings
+output "mongo_connection_string" {
+  value     = azurerm_mongo_cluster.mongo.connection_strings[0].value
   sensitive = true
 }
