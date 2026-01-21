@@ -5,6 +5,12 @@ resource "random_password" "postgres-training" {
 }
 
 resource "azurerm_postgresql_flexible_server" "training" {
+  lifecycle {
+    ignore_changes = [
+      zone,
+    ]
+  }
+
   depends_on = [
     azurerm_private_dns_zone_virtual_network_link.training,
   ]
