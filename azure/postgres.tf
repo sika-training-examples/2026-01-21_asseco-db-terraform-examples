@@ -29,3 +29,8 @@ resource "azurerm_postgresql_flexible_server" "training" {
   storage_mb   = 32768
   storage_tier = "P4"
 }
+
+output "postgress_password" {
+  value     = random_password.postgres-training.result
+  sensitive = true
+}
